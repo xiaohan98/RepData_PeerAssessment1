@@ -24,6 +24,7 @@ dataByDay <- split(data, data$date)
 ```{r}
     #Total number of steps/Median per day
     totalSteps <- sapply(dataByDay, function(x) sum(x$steps))
+    medianSteps <- sapply(dataByDay, function(x) median(x$steps))
     meanSteps <- sapply(dataByDay, function(x) mean(x$steps))
     hist(totalSteps,main="Histogram of Frequency of TotalSteps/Day", breaks = 20, xlab = "Number of Steps")
 
@@ -33,7 +34,12 @@ Total number of steps/day
 ```{r}
     totalSteps
 ```
-  
+
+Median of steps/day
+```{r}
+  medianSteps
+```
+
 Mean of steps/day
 ```{r}
   meanSteps
