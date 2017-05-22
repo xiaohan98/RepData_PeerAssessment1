@@ -35,6 +35,7 @@ dataByDay <- split(data, data$date)
 ```r
     #Total number of steps/Median per day
     totalSteps <- sapply(dataByDay, function(x) sum(x$steps))
+    medianSteps <- sapply(dataByDay, function(x) median(x$steps))
     meanSteps <- sapply(dataByDay, function(x) mean(x$steps))
     hist(totalSteps,main="Histogram of Frequency of TotalSteps/Day", breaks = 20, xlab = "Number of Steps")
 ```
@@ -71,7 +72,38 @@ Total number of steps/day
 ## 2012-11-30 
 ##         NA
 ```
-  
+
+Median of steps/day
+
+```r
+  medianSteps
+```
+
+```
+## 2012-10-01 2012-10-02 2012-10-03 2012-10-04 2012-10-05 2012-10-06 
+##         NA          0          0          0          0          0 
+## 2012-10-07 2012-10-08 2012-10-09 2012-10-10 2012-10-11 2012-10-12 
+##          0         NA          0          0          0          0 
+## 2012-10-13 2012-10-14 2012-10-15 2012-10-16 2012-10-17 2012-10-18 
+##          0          0          0          0          0          0 
+## 2012-10-19 2012-10-20 2012-10-21 2012-10-22 2012-10-23 2012-10-24 
+##          0          0          0          0          0          0 
+## 2012-10-25 2012-10-26 2012-10-27 2012-10-28 2012-10-29 2012-10-30 
+##          0          0          0          0          0          0 
+## 2012-10-31 2012-11-01 2012-11-02 2012-11-03 2012-11-04 2012-11-05 
+##          0         NA          0          0         NA          0 
+## 2012-11-06 2012-11-07 2012-11-08 2012-11-09 2012-11-10 2012-11-11 
+##          0          0          0         NA         NA          0 
+## 2012-11-12 2012-11-13 2012-11-14 2012-11-15 2012-11-16 2012-11-17 
+##          0          0         NA          0          0          0 
+## 2012-11-18 2012-11-19 2012-11-20 2012-11-21 2012-11-22 2012-11-23 
+##          0          0          0          0          0          0 
+## 2012-11-24 2012-11-25 2012-11-26 2012-11-27 2012-11-28 2012-11-29 
+##          0          0          0          0          0          0 
+## 2012-11-30 
+##         NA
+```
+
 Mean of steps/day
 
 ```r
@@ -116,7 +148,7 @@ Mean of steps/day
      ylab='Average Steps')
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-5-1.png)<!-- -->
+![](PA1_template_files/figure-html/unnamed-chunk-6-1.png)<!-- -->
 
 ```r
     #Finds the interval with the highest avg
@@ -234,7 +266,7 @@ The number of NA values in the dataset is 2304
     hist(totalStepsComplete ,main="Histogram of Frequency of TotalSteps/Day", breaks = 20, xlab = "Number of Steps")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-9-1.png)<!-- -->
+![](PA1_template_files/figure-html/unnamed-chunk-10-1.png)<!-- -->
 
 
 ## Are there differences in activity patterns between weekdays and weekends?
@@ -262,5 +294,5 @@ The number of NA values in the dataset is 2304
     xyplot(average_steps ~  interval | day, data = week_data, layout = c(1,2), type ="l", ylab="Number of Steps")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-10-1.png)<!-- -->
+![](PA1_template_files/figure-html/unnamed-chunk-11-1.png)<!-- -->
 
